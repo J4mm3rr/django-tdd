@@ -36,19 +36,24 @@ class NewVisitorTest(unittest.TestCase):
 
 		table =  self.browser.find_element_by_id('id_list_table')
 		rows = table.find_elements_by_tag_name('tr')
-		self.assertTrue(
-			any(row.text == '1: Buy peackock feathers' for row in rows),
-			"New to-do item did not appear in table"
-		)
+		self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
 
 		# There is still a button to add more To-Do's so she enters:
 		# "Use peacock feathers to make a fly".
-		self.fail('Finish Test!')
+		inputbox =self.browser.find_element_by_id('id_new_item')
+		inputbox.send_keys('Use peacock feathers to make a fly')
+		inputbox.send_keys(Keys.ENTER)
+		time.sleep(1)
 
 		# Page updates again and lists her new item.
+		table =  self.browser.find_element_by_id('id_list_table')
+		rows = table.find_elements_by_tag_name('tr')
+		self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
+		self.assertIn('2: Use peacock feathers to make a fly', [row.text for row in rows])
 
 		# Edith wonders if site will save her list over sessions
 		# she see's text explaining this on page.
+		self.fail('Finish the test!')
 
 		# She revisits url, her list is restored.
 
