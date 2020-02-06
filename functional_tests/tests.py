@@ -59,7 +59,6 @@ class NewVisitorTest(StaticLiveServerTestCase):
 			delta=10
 		)
 
-
 	def test_can_start_a_list_for_one_user(self):
 		# Edith hears about new fancy to-do list app and heads to the website
 		self.browser.get(self.live_server_url)
