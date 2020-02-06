@@ -1,1 +1,13 @@
-django==1.11.13
+astroid==2.3.3
+coverage==5.0.3
+Django==1.11.27
+django-coverage==1.2.4
+isort==4.3.21
+lazy-object-proxy==1.4.3
+mccabe==0.6.1
+pylint==2.4.4
+pytz==2019.3
+selenium==3.141.0
+six==1.14.0
+urllib3==1.25.7
+wrapt==1.11.2
